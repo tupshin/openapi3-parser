@@ -1,0 +1,18 @@
+[package]
+name = "openapi3-parser"
+version = "0.1.0"
+edition = "2021"
+authors = ["Ayon Saha <ayonsaha2011@gmail.com>"]
+description = "A Rust library to parse and work with OpenAPI 3.0 specifications in JSON and YAML format"
+license = "MIT"
+repository = "https://github.com/ayonsaha2011/openapi3_parser"
+homepage = "https://github.com/ayonsaha2011/openapi3_parser"
+readme = "README.md"
+keywords = ["openapi", "swagger", "parser", "json", "yaml"]
+categories = ["api-bindings", "parsing"]
+
+[dependencies]
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+serde_yaml = "0.9"
+thiserror = "1.0"
