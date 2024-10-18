@@ -151,7 +151,7 @@ pub struct Schema {
     pub any_of: Option<Vec<Schema>>,
     pub items: Option<Box<Schema>>,
     pub properties: Option<HashMap<String, Schema>>,
-    pub additional_properties: Option<Box<Schema>>,
+    pub additional_properties: Option<BoolOrSchema>,
     pub description: Option<String>,
     pub format: Option<String>,
     pub default: Option<serde_json::Value>,
@@ -162,6 +162,14 @@ pub struct Schema {
     pub xml: Option<XML>,
     pub example: Option<serde_json::Value>,
     pub deprecated: Option<bool>,
+}
+
+#[derive(Serialize, Deserialize, Debug)]
+#[serde(rename_all = "camelCase")]
+#[serde(untagged)]
+pub enum BoolOrSchema {
+    bool(bool),
+    schema(Box<Schema>)
 }
 
 #[derive(Serialize, Deserialize, Debug)]
